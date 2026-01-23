@@ -1,10 +1,12 @@
 package com.audius.music.core.user.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Table(schema = "user_management", name = "user_access")
 public class UserAccess {
@@ -15,7 +17,7 @@ public class UserAccess {
     @Column(name = "user_role")
     private String userRole;
     @Column(name = "created_on")
-    private Timestamp createdOn;
+    private String createdOn;
     @Column(name = "user_id")
     private Long userId;
     @Column(name = "phone_number")

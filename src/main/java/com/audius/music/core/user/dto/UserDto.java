@@ -9,15 +9,29 @@ import lombok.AllArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class UserDto {
     private Long userId;
     private String userName;
     private String password;
     private String mail;
-    private Timestamp createdOn;
+    private String createdOn;
     private String accountName;
     private String phoneNumber;
     private LocalDate dob;
+
+    public UserDto(Long userId, String userName, String password, String mail, String createdOn,
+                      String accountName, String phoneNumber, LocalDate dob){
+        this.userId = userId;
+        this.userName = userName;
+        this.password= password;
+        this.mail = mail;
+        this.createdOn = createdOn;
+        this.accountName = accountName;
+        this.phoneNumber = phoneNumber;
+        this.dob= dob;
+
+    }
+
+
 }
 

@@ -2,12 +2,14 @@ package com.audius.music.core.user.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Entity
 @Table(schema = "user_management", name = "user")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public class User {
     private String password;
     private String mail;
     @Column(name = "created_on")
-    private Timestamp createdOn;
+    private String createdOn;
     @Column(name = "account_name")
     private String accountName;
     @Column(name = "phone_number")
