@@ -1,5 +1,9 @@
 /home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/Home.java
 /home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/MusicApplication.java
-/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/Tenant.java
-/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/UserRepo.java
+/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/auth/JwtAuthenticationFilter.java
 /home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/openapi/SwaggerConfig.java
+/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/utils/controller/MusicController.java
+/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/utils/entity/TrackEntity.java
+/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/utils/fileInterface/FileHandling.java
+/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/utils/repository/TrackRepository.java
+/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/utils/service/MusicService.java

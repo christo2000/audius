@@ -1,27 +1,27 @@
-package com.audius.music.userRepoTest;
-
-import com.audius.music.core.user.entity.User;
-import com.audius.music.core.user.entity.UserAccess;
-import com.audius.music.core.user.repo.UserAccessRepo;
-import com.audius.music.core.user.repo.UserRepo;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Optional;
-
-@SpringBootTest
-class UserAccessRepoTest {
-
-    @Autowired
-    private UserAccessRepo userRepo;
-    private UserAccess user;
-
-    @Test
-    void userAccessRepoTest() {
-        Optional<UserAccess> userReturn = userRepo.findByUserAccessId(1001L);
-        Optional<UserAccess> findByUserId = userRepo.findByUserId(1L);
-        Optional<UserAccess> userIdReturn = userRepo.findByPhoneNumber("9876543210");
-        System.out.println(userIdReturn);
-    }
-}
+//package com.audius.music.userRepoTest;
+//
+//import com.audius.music.core.user.entity.User;
+//import com.audius.music.core.user.entity.UserAccess;
+//import com.audius.music.core.user.repo.UserAccessRepo;
+//import com.audius.music.core.user.repo.UserRepo;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//import java.util.Optional;
+//
+//@SpringBootTest
+//class UserAccessRepoTest {
+//
+//    @Autowired
+//    private UserAccessRepo userRepo;
+//    private UserAccess user;
+//
+//    @Test
+//    void userAccessRepoTest() {
+//        Optional<UserAccess> userReturn = userRepo.findByUserAccessId(1001L);
+//        Optional<UserAccess> findByUserId = userRepo.findByUserId(1L);
+//        Optional<UserAccess> userIdReturn = userRepo.findByPhoneNumber("9876543210");
+//        System.out.println(userIdReturn);
+//    }
+//}
