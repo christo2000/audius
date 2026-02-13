@@ -1,11 +1,15 @@
 package com.audius.music.utils.controller;
 
+import com.audius.music.utils.TrackDto;
 import com.audius.music.utils.entity.TrackEntity;
 import com.audius.music.utils.repository.TrackRepository;
 import com.audius.music.utils.service.MusicService;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,28 +19,32 @@ public class MusicController {
     final TrackRepository trackRepository;
     final MusicService musicService;
 
-    MusicController(TrackRepository trackRepository){
+    // let Spring inject both repository and service
+    public MusicController(TrackRepository trackRepository, MusicService musicService){
         this.trackRepository = trackRepository;
-        this.musicService = new MusicService(trackRepository);
+        this.musicService = musicService;
     }
 
     @GetMapping("/csvUpload")
     public void csvToDb(@RequestParam String csvPath) throws Exception {
-
-        MusicService csvFileService = new MusicService(trackRepository);
-        String csvFilePath = csvPath;
-        csvFileService.readAndPersistCsv(csvFilePath);
+        // use the injected service so @Transactional and DataSource are properly wired
+        musicService.readAndPersistCsv(csvPath);
     }
 
 
 
     @GetMapping("/trackData/fetch10")
-    public List<TrackEntity> fetch10Rows(){
-        return trackRepository.findAll().stream().limit(10).toList();
+    public
+    List
+            <TrackDto> fetch10Rows(){
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("id").ascending());
+        List<TrackDto> allTracks = new ArrayList<>();
+        musicService.setTrackEntity(pageable, allTracks);
+        return allTracks;
     }
 
     @GetMapping("/trackData")
-    public Page<TrackEntity> getTrackData(
+    public  List<TrackDto> getTrackData(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int pageSize
     ) {

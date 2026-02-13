@@ -4,35 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e36b53b-c669-4501-ad6e-525f265ff2ef" name="Changes" comment="">
+    <list default="true" id="5e36b53b-c669-4501-ad6e-525f265ff2ef" name="Changes" comment="csv to db and pagination">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/MusicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/audius/music/MusicApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/dto/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/entity/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/entity/UserAccess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/repo/AccountRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/repo/UserAccessRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/core/user/repo/UserRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/openapi/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/audius/music/openapi/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/audius/music/auth/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/controller/MusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/controller/MusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/entity/TrackEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/entity/TrackEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/service/MusicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/audius/music/utils/service/MusicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/.~lock.Most Streamed Spotify Songs 2024.xlsx#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Artemas - i like the way you kiss me (official music video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Ava Max - Million Dollar Baby (Official Video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Benson Boone - Beautiful Things (Official Music Video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Eminem - Houdini [Official Music Video].mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FloyyMenor, Cris MJ - Gata Only.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Jack Harlow - Lovin On Me [Official Music Video].mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Kendrick Lamar - Not Like Us (Lyrics) Drake Diss.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Miley Cyrus - Flowers (Official Video).mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/audius/music/userRepoTest/UserAccessRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/audius/music/userRepoTest/UserAccessRepoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/audius/music/userRepoTest/UserRepoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/audius/music/userRepoTest/UserRepoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.~lock.Most Streamed Spotify Songs 2024.xlsx#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Artemas - i like the way you kiss me (official music video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Ava Max - Million Dollar Baby (Official Video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Benson Boone - Beautiful Things (Official Music Video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Eminem - Houdini [Official Music Video].mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FloyyMenor, Cris MJ - Gata Only.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Jack Harlow - Lovin On Me [Official Music Video].mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kendrick Lamar - Not Like Us (Lyrics) Drake Diss.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Miley Cyrus - Flowers (Official Video).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Most Streamed Spotify Songs 2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/Home.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/MusicApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/auth/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/utils/controller/MusicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/utils/entity/TrackEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/utils/fileInterface/FileHandling.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/utils/repository/TrackRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/audius/music/utils/service/MusicService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/music-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.audius.music.MusicApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.audius.music.userRepoTest.UserRepoTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.audius.music.MusicApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.audius.music.userRepoTest.UserRepoTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/audius/music/MusicApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/audius/music/userRepoTest/UserAccessRepoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/audius/music/userRepoTest/UserRepoTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +58,9 @@
   </component>
   <component name="CopilotUserSelectedModel">
     <selectedModels>
+      <entry key="edit-panel" value="GPT-5 mini" />
       <entry key="chat-panel" value="GPT-5 mini" />
       <entry key="agent-panel" value="GPT-5 mini" />
-      <entry key="edit-panel" value="GPT-5 mini" />
     </selectedModels>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -67,8 +79,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;christo2000&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/christo2000/audius.git&quot;,
+    &quot;accountId&quot;: &quot;5501f220-5dc9-4445-acbb-5094ee261590&quot;
+  }
+}</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -79,25 +103,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MusicApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CSVFileUtilsTest.dbUploadTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.music [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.music [clean,compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.music [clean,complie].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.music [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.music [install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;audius__get__call&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/fileutils&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MusicApplication.executor": "Run",
+    "JUnit.CSVFileUtilsTest.dbUploadTest.executor": "Debug",
+    "Maven.music [clean,compile,install].executor": "Run",
+    "Maven.music [clean,compile].executor": "Run",
+    "Maven.music [clean,complie].executor": "Run",
+    "Maven.music [clean,install].executor": "Run",
+    "Maven.music [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "audius__get__call",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/christopher.paulraj@zucisystems.com/java/audius/src/main/java/com/audius/music/fileutils",
+    "settings.editor.selected.configurable": "editor.preferences.completion"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/audius/music/fileutils" />
@@ -108,8 +133,8 @@
       <command value="mvn clean complie" />
       <command value="mvn clean compile install" />
       <command value="mvn install" />
-      <command value="mvn clean install" />
       <command value="mvn clean compile" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="RunManager" selected="Application.MusicApplication">
@@ -168,7 +193,20 @@
       <option name="presentableId" value="Default" />
       <updated>1766470435907</updated>
     </task>
+    <task id="LOCAL-00001" summary="csv to db and pagination">
+      <option name="closed" value="true" />
+      <created>1770568936659</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770568936659</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="csv to db and pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="csv to db and pagination" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -185,12 +223,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/audius/music/utils/service/MusicService.java</url>
-          <line>107</line>
+          <line>126</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/audius/music/utils/service/MusicService.java</url>
-          <line>110</line>
+          <line>129</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

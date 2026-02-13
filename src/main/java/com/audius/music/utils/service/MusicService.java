@@ -1,5 +1,8 @@
 package com.audius.music.utils.service;
 
+import com.audius.music.utils.TrackDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.apache.commons.csv.CSVFormat;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.Table;
+import javax.sql.DataSource;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -31,10 +35,14 @@ public class MusicService {
 
     private final TrackRepository trackRepository;
     private final Logger logger = LoggerFactory.getLogger(MusicService.class);
+    private final DataSource dataSource;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
-    public MusicService(TrackRepository trackRepository) {
+    // Spring will inject DataSource and TrackRepository
+    public MusicService(TrackRepository trackRepository, DataSource dataSource) {
 
         this.trackRepository = trackRepository;
+        this.dataSource = dataSource;
 
     }
 
@@ -48,7 +56,18 @@ public class MusicService {
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             Table table = TrackEntity.class.getAnnotation(Table.class);
             logger.info("Table Name: "+table.name() + " Schema: "+table.schema());
-            logger.info("Datasource URL: " );
+            // log the JDBC URL from DataSource if available
+            try {
+                if (dataSource != null) {
+                    String url = dataSource.getConnection().getMetaData().getURL();
+                    logger.info("Datasource URL: " + url);
+                    dataSource.getConnection().close();
+                } else {
+                    logger.warn("DataSource is null - not connected to DB");
+                }
+            } catch (Exception ex) {
+                logger.warn("Unable to read DataSource URL: " + ex.getMessage());
+            }
             for (CSVRecord csvRecord : csvParser) {
                 TrackEntity track = new TrackEntity();
 
@@ -85,7 +104,7 @@ public class MusicService {
                 track.setSoundcloudStreams(parseLong(csvRecord.get("Soundcloud Streams")));
                 track.setShazamCounts(parseLong(csvRecord.get("Shazam Counts")));
                 track.setTidalPopularity(parseInt(csvRecord.get("TIDAL Popularity")));
-                track.setTrackPath(csvRecord.get("Track Path"));
+//                track.setTrackPath(csvRecord.get("Track Path"));
 
 
                 // Explicit Track logic
@@ -126,8 +145,10 @@ public class MusicService {
     }
 
     // pagination
-    public Page<TrackEntity> paginatedTrackData(int page, int pageSize) {
+    public List<TrackDto> paginatedTrackData(int page, int pageSize) {
 
+        List<TrackDto> allTracks = new ArrayList<>();
+        try{
         // 🔒 Validation
         if (page < 0) {
             throw new IllegalArgumentException("Page index must be >= 0");
@@ -137,10 +158,56 @@ public class MusicService {
             throw new IllegalArgumentException("Page size must be between 1 and 100");
         }
 
-        Pageable pageable = PageRequest.of(page, pageSize, Sort.by("id").descending());
+        Pageable pageable = PageRequest.of(page, pageSize, Sort.by("id").ascending());
+            setTrackEntity(pageable, allTracks);
+            logger.info(objectMapper.writeValueAsBytes(allTracks).length + " bytes of track data serialized to JSON");
+            return allTracks;
 
-        // 📦 Data fetch (offset = page * pageSize handled internally)
-        return trackRepository.findAll(pageable);
+        }catch(Exception e){
+            logger.error("Error fetching paginated track data: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to fetch paginated track data", e);
+
+        }
+
+    }
+
+    public void setTrackEntity(Pageable pageable, List<TrackDto> allTracks) {
+        for(TrackEntity entity : trackRepository.findAll(pageable)) {
+
+            TrackDto dto = new TrackDto();
+            dto.setId(entity.getId());
+            dto.setTrack(entity.getTrack());
+            dto.setAlbumName(entity.getAlbumName());
+            dto.setArtist(entity.getArtist());
+            dto.setReleaseDate(entity.getReleaseDate().toString());
+            dto.setIsrc(entity.getIsrc());
+            dto.setAllTimeRank(entity.getAllTimeRank());
+            dto.setTrackScore(entity.getTrackScore());
+            dto.setSpotifyStreams(entity.getSpotifyStreams());
+            dto.setSpotifyPlaylistCount(entity.getSpotifyPlaylistCount());
+            dto.setSpotifyPlaylistReach(entity.getSpotifyPlaylistReach());
+            dto.setSpotifyPopularity(entity.getSpotifyPopularity());
+            dto.setYouTubeViews(entity.getYouTubeViews());
+            dto.setYouTubeLikes(entity.getYouTubeLikes());
+            dto.setTikTokPosts(entity.getTikTokPosts());
+            dto.setTikTokLikes(entity.getTikTokLikes());
+            dto.setTikTokViews(entity.getTikTokViews());
+            dto.setYouTubePlaylistReach(entity.getYouTubePlaylistReach());
+            dto.setAppleMusicPlaylistCount(entity.getAppleMusicPlaylistCount());
+            dto.setAirPlaySpins(entity.getAirPlaySpins());
+            dto.setSiriusXMSpins(entity.getSiriusXMSpins());
+            dto.setDeezerPlaylistCount(entity.getDeezerPlaylistCount());
+            dto.setDeezerPlaylistReach(entity.getDeezerPlaylistReach());
+            dto.setAmazonPlaylistCount(entity.getAmazonPlaylistCount());
+            dto.setPandoraStreams(entity.getPandoraStreams());
+            dto.setPandoraTrackStations(entity.getPandoraTrackStations());
+            dto.setSoundcloudStreams(entity.getSoundcloudStreams());
+            dto.setShazamCounts(entity.getShazamCounts());
+            dto.setTidalPopularity(entity.getTidalPopularity());
+            dto.setExplicitTrack(entity.getExplicitTrack());
+            dto.setTrackPath(entity.getSong().getTrackPath());
+            allTracks.add(dto);
+        }
     }
 
 

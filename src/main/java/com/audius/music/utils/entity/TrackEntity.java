@@ -98,8 +98,10 @@ public class TrackEntity {
     private Integer tidalPopularity;
 
     @Column(name = "explicit_track")
-    private Integer explicitTrack; // Using Integer based on "1" in CSV sample, likely 0/1
+    private Integer explicitTrack;
 
-    @Column(name = "track_path")
-    private String trackPath;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "track_id", referencedColumnName = "track_id", nullable = true, unique = true)
+    private Songs song;
+
 }
